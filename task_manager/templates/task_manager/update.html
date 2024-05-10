@@ -1,0 +1,21 @@
+{%extends 'task_manager/base.html'%}
+{% load static %}
+{% block links %}
+{% endblock links %}
+
+{% block content %}
+<main>
+    <div class="add-task">
+      <h3>Update Task</h3>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ add_task_form }}
+        <li class="button">
+          <input type="submit" value="Update Task" />
+        </li>
+      </form>
+    </div>
+   
+  </main>
+{% endblock content %}
+

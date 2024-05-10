@@ -1,0 +1,14 @@
+{%extends "task_manager/base.html"%}
+
+{%block title%} 
+        User Login
+{%endblock%}
+
+        
+{%block content%} 
+    <form action = '' method = 'post'>
+        {% csrf_token %}
+        {{login_form}}
+        <input type = 'submit' value ='Login'>
+    </form>
+{%endblock%}

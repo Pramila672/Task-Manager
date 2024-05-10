@@ -1,0 +1,30 @@
+{%extends "task_manager/base.html"%}
+{%block title%}
+    Task Manager
+{%endblock%}
+
+{%block content%}
+ <h1>Welcome!! {{user.username|capfirst}} </h1>
+
+    <div>
+        <form action = '' method = 'post'>
+            {% csrf_token %}
+            {{add_task_form}}
+            <input type = "submit" value = 'Add Task'>
+        </form> 
+    </div>
+
+    <div>
+        <h1>Your Tasks</h1>
+        {%for task in tasks %}
+            {{task.title}}<br>
+            {{task.desc}}<br>
+            {{task.deadline}}<br>
+            {{task.get_status_display}}<br>
+            <a href="{% url 'task_manager:update_task' task.id %}">Update Task</a><br>
+
+            --------------------------------------------<br>    
+            
+        {%endfor%}
+    </div>
+{%endblock%}
